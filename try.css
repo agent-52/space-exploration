@@ -73,8 +73,6 @@ body{
   min-height: 100vh;
   display: grid;
   grid-template-rows: min-content 1fr;
-  overflow-x: hidden;
-  
 
 }
 
@@ -120,25 +118,22 @@ input,button,textarea,select{
 
 .grid-container{
   display: grid;
-  text-align: center;
-  place-items: center;
-  padding: 0 1rem;
-  
   
 }
 
-.grid-container * {
-  max-width: 50ch;
+.flex-container{
+  display: flex;
+  justify-content: space-evenly;
+
 }
-
-
-
+.flex-container > *:first-child {
+  width: 40rem;
+}
 
 @media (min-width: 45rem ) {
   .grid-container{
     grid-template-columns: minmax(2rem, 1fr)  repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
     column-gap: var(--container-gap, 2rem);
-    text-align: left;
   }
 
   .grid-container > *:first-child {
@@ -146,12 +141,6 @@ input,button,textarea,select{
   }
   .grid-container > *:last-child {
     grid-column: 3/4;
-  }
-
-  .grid-container--home{
-    padding-bottom: max(6rem, 15vh);
-    align-items: end;
-  
   }
 
 }
@@ -225,7 +214,6 @@ input,button,textarea,select{
   border-radius: 50%;
   position: relative;
   z-index: 1;
-  font-size: 2rem;
 
 }
 .large-button::after{
@@ -247,123 +235,12 @@ input,button,textarea,select{
   opacity: 1; 
 }
 
-.logo{
-  margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem)
-}
-
-.mobile-nav-toggle {
-  display: none;
-  transition: background-image 0.5s ease;
-
-}
-
-.primary-header{
-  justify-content: space-between;
-  align-items: center;
-}
-
 .primary-navigation{
-  --gap: clamp(1.5rem, 5vw, 3.5rem);
-  --underline-gap: 2rem;
+  --gap: 8rem;
   list-style: none;
   padding: 0;
   margin: 0;
-  
 }
-
-@supports (backdrop-filter: blur(1rem)) {
-  .primary-navigation{
-    background: hsl(var(--clr-white)/0.05);
-    backdrop-filter: blur(1.5rem);
-  }
-}
-
-@media (max-width: 35rem) {
-  .primary-navigation{
-    --underline-gap: 0.5rem;
-    padding: min(20rem, 10vh) 2rem;
-    flex-direction: column;
-    position: fixed;
-    background-color: black;
-    inset: 0 0 0 30%;
-    z-index: 1000;
-    background-color: hsl(var(--clr-white)/0.05);
-    backdrop-filter: blur(1.5rem);
-    transform: translateX(100%);
-    transition: transform 0.5s ease-in-out;
-    
-    
-  }
-  .primary-navigation[data-visible="false"]{
-    transform: translateX(0%); 
-  }
-
-  .mobile-nav-toggle[aria-expanded="false"]{
-    background-image: url(./space-tourism-website-main/starter-code/assets/shared/icon-close.svg);
-    
-  }
-
-  
-
-  .primary-navigation.underline-indicators > .active {
-    border: 0;
-
-  }
-
-  .mobile-nav-toggle{
-    display: block;
-    position: absolute;
-    right: 1rem;
-    top: 2rem;
-    z-index: 2000;
-    background: transparent;
-    border: none;
-    background-image: url(./space-tourism-website-main/starter-code/assets/shared/icon-hamburger.svg);
-    background-repeat: no-repeat;
-    aspect-ratio: 1;
-    width: 1.5rem;
-    color: transparent;
-  }
-}
-
-@media (min-width: 35em){
-  .primary-navigation{
-    padding-inline: clamp(3rem, 7.5vh, 7rem);
-  }
-}
-
-@media (min-width: 35em) and (max-width: 45em) {
-  .primary-navigation a > span {
-    display: none;
-  }
-  .primary-navigation{
-    --gap: clamp(1.5rem, 8vw, 3.5rem);
-  }
-
-}
-
-@media (min-width: 45em) {
-
-  .primary-header::before{
-    content: '';
-    display: block;
-    position: relative;
-    height: 1px;
-    background: red; 
-    width: 100%;
-  }
-
-
-  .primary-navigation{
-    margin-block: 2rem;
-  }
-
-
-}
-
-
-
-
 
 .primary-navigation a {
   text-decoration: none;
@@ -436,32 +313,6 @@ input,button,textarea,select{
   border-color: hsl(var(--clr-white)/0.5);
 }
 
-
-/*-----------------------*/
-/*  page specifics       */
-/*-----------------------*/
-
-body{
-  background-size: cover;
-  background-position: bottom center;
-}
-
-.home{
-  background-image: url(./space-tourism-website-main/starter-code/assets/home/background-home-mobile.jpg);
-}
-
-@media (min-width: 35rem){
-  .home{
-    background-position: center center;
-    background-image: url(./space-tourism-website-main/starter-code/assets/home/background-home-tablet.jpg);
-  }
-}
-
-@media(min-width: 45rem){
-  .home{
-    background-image: url(./space-tourism-website-main/starter-code/assets/home/background-home-desktop.jpg);
-  }
-}
 
 
 
