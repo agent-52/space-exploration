@@ -726,3 +726,7 @@ body {
   gap: 2rem;
   
 }
+#moon-image> img{
+  transform: scale(1.25);
+  margin-top: -2rem;
+}
